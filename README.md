@@ -10,7 +10,7 @@
     ```
   - Escribimos main.go
     ```go
-     package main
+    package main
 
     import "github.com/aws/aws-lambda-go/lambda"
 
@@ -56,3 +56,23 @@
     $ go get github.com/aws/aws-sdk-go-v2/service/secretsmanager
     $ go get github.com/go-sql-driver/mysql
     ```
+
+## Cómo generar el build de un proyecto para subirlo a AWS
+1. En Linux
+   ```
+   $ git add .
+   $ git commit -m "Ultimo commit antes luego del build"
+   $ git push
+   $ go build main.go
+   $ rm main.tar.xz
+   tar -a -cf main.tar.xz main.go
+   ```
+2. En Windows
+   ```
+   $ git add .
+   $ git commit -m "Ultimo commit antes luego del build"
+   $ git push
+   $ go build main.go
+   $ del main.tar.xz
+   tar -a -cf main.zip main.go
+   ```
